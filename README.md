@@ -2,7 +2,11 @@
 
 项目采用鸿蒙原生技术开发移动端应用，结合后台管理系统实现完整业务闭环。前端通过ArkTS语言构建流畅界面，后台基于Node.js + Express + Mysql 架构。
 
-（项目体量很小）
+tips: 项目体量很小
+
+## 演示视频
+
+https://www.bilibili.com/video/BV1B3KTzSEUs
 
 ## 数据库
 
