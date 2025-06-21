@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../libs/bootstrap5.min.css"/>
+  <link rel="stylesheet" href="../libs/index.css"/>
+</head>
+<body>
+  <div id="index"></div>
+  <div id="app">
+    <table http="/activity"
+      id="table" class="table">
+      <thead>
+        <tr>
+          <th>活动名称</th>
+          <th>报名费用</th>
+          <th>活动介绍</th>
+          <th>开始时间</th>
+          <th>发布时间</th>
+          <th>发布者</th>
+          <th>是否热门</th>
+          <th>宣传照</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in tableData">
+          <td>{{item.activity}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.detail}}</td>
+          <td>{{item.start}}</td>
+          <td>{{item.ctime}}</td>
+          <td>{{item.username}}</td>
+          <td>{{item.hot}}</td>
+          
+          <!--在html5标准中，并没有bg标签，这个标签是使用vue封装而来的-->
+          <td style="padding: 1px;" :onclick="'upload(this,'+item.id+')'">
+            <bg :src="item.logo" width="80px" height="80px"></bg>
+          </td>
+      
+          
+          <td>
+            <button class="btn btn-primary btn-sm" @click="update(item.id)">修改</button>
+            <button class="btn btn-danger  btn-sm" @click="remove(item.id)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="../libs/bootstrap5.min.js"></script>
+  <script src="../libs/vue.js"></script>
+  <script src="../libs/index.js"></script>
+  <script>
+    initVue(function () {
+      var uid = document.getElementById('uid');
+      if (uid) {
+        uid.value = localStorage.getItem('uid')
+      }
+    });
+  </script>
+</body>
+</html>

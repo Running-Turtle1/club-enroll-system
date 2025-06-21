@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //   端午吃什么：粽子、鸭蛋
+    function fnB() { // 直接得到promise版本的fnB
+      return new Promise(function(resolve, reject){
+        setTimeout(function(){ // 假如说A是一个消耗时间的操作
+          resolve('吃到粽子') // 解决战斗
+        }, 1000) // 等待1s
+      })
+    }
+    function fnD() { // 直接得到promise版本的fnB
+      return new Promise(function(resolve, reject){
+        setTimeout(function(){ // 假如说A是一个消耗时间的操作
+          resolve('吃到鸭蛋') // 解决战斗
+        }, 2000) // 等待2s
+      })
+    }
+
+    async function fnC() {
+      console.log('C函数被调用了')
+      var question = await fnB()  // 阻塞代码的效果，停止在此处强行等待
+      var egg = await fnD() // 阻塞代码的效果，停止在此处强行等待
+      console.log(question)
+      console.log(egg)
+    }
+
+    fnC()
+
+    // async + await
+    // 1.查询数据库中的数据是不是耗时操作? 也是耗时操作，等待数据查询出来再...
+    // 2.通过网络获取数据，是不是耗时操作? 一定是耗时操作，地铁里面信号好吗?
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

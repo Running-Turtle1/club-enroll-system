@@ -1,0 +1,32 @@
+<form id="form" onsubmit="return form(this)">
+  <label>活动名称</label>
+  <div>
+    <input id="activity" class="form-control"/>
+  </div>
+  <label>报名费用</label>
+  <div>
+    <input id="price" type="number" class="form-control"/>
+  </div>
+  <label>活动介绍</label>
+  <div>
+    <textarea id="detail" class="form-control"></textarea>
+  </div>
+  <label>开始时间</label>
+  <div>
+    <input id="start" class="form-control"/>
+  </div>
+  
+  <label>宣传图</label>
+  <div>
+    <input id="logo" type="file" onchange="file(this)" class="form-control"/>
+  </div>
+
+  <label>是否热门</label>
+  <div>
+    <select id="nid" http="/option" class="form-control"></select>
+  </div>
+  
+  <input id="uid" type="hidden" class="form-control" value=""/>
+  
+  <input type="submit" class="btn btn-success" value="保存"/>
+</form>

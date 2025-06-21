@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="btn btn-danger nav-btn"
+      onclick="location.href='../index/login.html'">退出</button>
+    <button class="btn btn-primary nav-btn"
+      id="addBtn" 
+      data-bs-toggle="offcanvas" 
+      data-bs-target="#offcanvasExample" 
+      aria-controls="offcanvasExample">添加</button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!-- 导航地址，根据实际情况修改 -->
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5500/views/activity/index.html">活动管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:5500/views/nav/index.html">导航管理</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <a class="navbar-brand" id="rt-user" style="margin-left:10px;"></a>
+</nav>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">添加</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div id="sideBar"></div>
+</div>

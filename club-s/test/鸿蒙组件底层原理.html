@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // JS--->TS--->ArkTS (套壳public)
+    // Button('登录').fontSize(25)
+    //     .height(50).width(200)
+    //     .margin({top:50})
+
+    // java class  js也有class用的不多
+    class MyButton { // text是一个字符串 "登录"
+      // 构造函数尾部不能加return
+      constructor(text) { // 类的构造函数/构造方法  <button>
+        this.button = document.createElement('button') // DOM BOM操作
+        this.button.innerText = text // 把text字(登录)赋值给<buttonnpm
+        this.button.style.color = 'white' // 字体白色
+        this.button.style.border = 'none' // 去掉边框
+        this.button.style.outline = 'none' // 去掉外轮廓
+        var body = document.getElementById('body') // <body>
+        body.appendChild(this.button) // <body>内部添加一个<button>
+      }
+      fontSize(size) { // 25
+        this.button.style.fontSize = size + 'px'
+        return this  // 返回当前对象
+      }
+      backgroundColor(color) { // red
+        this.button.style.backgroundColor = color
+        return this
+      }
+      width(width) {
+        this.button.style.width = width + 'px'
+        return this
+      }
+      height(height) {
+        this.button.style.height = height + 'px'
+        this.button.style.borderRadius = height/2 + 'px'
+        return this
+      }
+      onClick(fff) {
+        this.button.onclick = fff
+        return this // 必须要加的，才能实现链式调用
+      }
+    }
+
+    function Button(text) {
+      return new MyButton(text)
+    }
+
+    // JS主函数
+    window.onload = function() {
+      Button('登录')   // 特别像鸿蒙组件的用法，链式调用
+        .fontSize(25)
+        .backgroundColor('blue')
+        .width(200)
+        .height(50)
+        .onClick(()=>alert('点击了登录'))
+      Button('注册')   // 特别像鸿蒙组件的用法，链式调用
+        .fontSize(25)
+        .backgroundColor('red')
+        .width(200)
+        .height(50)
+    }
+  </script>
+</head>
+<body id="body">
+  
+</body>
+</html>

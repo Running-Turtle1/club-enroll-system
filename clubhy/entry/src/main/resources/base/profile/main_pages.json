@@ -1,0 +1,10 @@
+{
+  "src": [
+    "pages/Login",
+    "pages/Index",
+    "pages/Owner",
+    "pages/Activity",
+    "pages/LoginSuccess",
+    "pages/AIChat"
+  ]
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function fnA(fff) {
+      console.log('A函数被调用了')
+      var result = fff(18)
+      console.log(result)
+    }
+
+    // function可以简写成=>
+    // 当里面只有一句话时，{}可以省略不写
+    // 当形参只有一个参数时，()也可以省略
+    // 当里面只有一句话且省略了{}，还会给我们赠送一个return
+    fnA(age=>age * 3)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

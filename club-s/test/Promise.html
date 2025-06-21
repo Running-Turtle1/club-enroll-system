@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Promise单词翻译过来是承诺，JS ES高版本提供的新语法
+    // Promise---->async+await
+    // JS ES5基础版本
+    // JS ES6大跃进，提供了很多新语法，Promise类--->对象
+    // JS ES8新增了async关键字，就是为了解决Promise代码太多问题
+    // Promise要求我们传入一个函数  resolve解决  reject拒绝
+    // promise很像if else
+    var name = '李四'
+    var promise = new Promise(function(resolve, reject) {
+      // resolve()
+      if (name == '张三') {
+        resolve()
+      } else {
+        reject()
+      }
+    })
+
+    // var person = new Person('张三',18,'男','测试大学')
+    // JS传参是可以传入函数的
+    promise.then(function(){ // then分支
+      console.log('被解决了')
+    }).catch(function(){     // catch分支
+      console.log('被拒绝了')
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

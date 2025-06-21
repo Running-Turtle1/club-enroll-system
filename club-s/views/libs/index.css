@@ -1,0 +1,22 @@
+#app,
+#sideBar{
+  padding: 10px;
+}
+#form>label{
+  float: left;
+  line-height: 53px;
+}
+#form>input[type="submit"]{
+  margin: 20px 0 0 60px;
+}
+#form>div {
+  overflow: hidden;
+  padding: 8px;
+}
+.nav-active{
+  font-weight: bold;
+}
+.nav-btn {
+  width: 70px;
+  margin-right: 10px;
+}

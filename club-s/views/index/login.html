@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理后台登录</title>
+  <link rel="stylesheet" href="../libs/bootstrap5.min.css" />
+  <script src="../libs/particles.min.js"></script>
+  <script src="../libs/index.js"></script>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background: #2d3a4b;
+    }
+    .login-container {
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      width: 500px;
+      padding: 50px;
+      position: fixed;
+      left: 50%;
+      top: 5%;
+      margin-left: -250px;
+    }
+    .submit-btn {
+      width: 30%;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="login-container">
+    <h2>网站后台管理系统</h2>
+    <br />
+    <form onsubmit="return mysubmit()">
+      <div class="mb-3">
+        <label class="form-label">用户名</label>
+        <input id="username" class="f orm-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">密码</label>
+        <input id="password" class="form-control" required>
+      </div>
+      <br />
+      <div style="text-align: right;">
+        <button type="submit" class="btn  btn-danger submit-btn" onclick="setType(2)">注册</button>
+        <button type="submit" class="btn btn-primary submit-btn" onclick="setType(1)">登录</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    var type = 1
+    function setType(t) {
+      type = t
+    }
+    function mysubmit() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      if (type == 1) {
+        var url = host + '/ellogin?username=' + username + '&password=' + password;
+        fetch(url).then(resp => resp.json()).then(resp => {
+          if (resp.code) {
+            localStorage.setItem('uid', resp.uid);
+            localStorage.setItem('user', resp.user);
+            localStorage.setItem('status', '管理员');
+            window.location.href = '../activity/index.html';
+          } else {
+            alert('用户名或密码错误');
+          }
+        });
+      } else if (type == 2) {
+        var url = host + '/register?username=' + username + '&password=' + password;
+        fetch(url).then(resp => resp.json()).then(resp => {
+          alert(resp.msg) // code  msg
+        })
+      }
+      return false;
+    }
+    particlesJS("particles-js", {
+      // 粒子的基本配置
+      particles: {
+        number: {
+          value: 80,  // 粒子数量
+          density: {
+            enable: true,
+            value_area: 800,  // 粒子分布密度
+          },
+        },
+        color: {
+          value: "#ffffff",  // 粒子颜色
+        },
+        shape: {
+          type: "circle",  // 粒子形状，支持 circle（圆形）等
+          stroke: {
+            width: 0,
+            color: "#000000",
+          },
+          polygon: {
+            nb_sides: 5,
+          },
+        },
+        opacity: {
+          value: 0.5,  // 粒子透明度
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false,
+          },
+        },
+        size: {
+          value: 3,  // 粒子大小
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false,
+          },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,  // 粒子间连线的距离
+          color: "#ffffff",  // 粒子间连线的颜色
+          opacity: 0.4,  // 粒子间连线的透明度
+          width: 1,  // 粒子间连线的宽度
+        },
+        move: {
+          enable: true,
+          speed: 6,  // 粒子运动速度
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200,
+          },
+        },
+      },
+      // 交互性的配置
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse",  // 鼠标悬停效果
+          },
+          onclick: {
+            enable: true,
+            mode: "push",  // 鼠标点击效果
+          },
+          resize: true,
+        },
+        modes: {
+          grab: {
+            distance: 400,
+            line_linked: {
+              opacity: 1,
+            },
+          },
+          bubble: {
+            distance: 400,
+            size: 40,
+            duration: 2,
+            opacity: 8,
+            speed: 3,
+          },
+          repulse: {
+            distance: 200,
+            duration: 0.4,
+          },
+          push: {
+            particles_nb: 4,
+          },
+          remove: {
+            particles_nb: 2,
+          },
+        },
+      },
+      retina_detect: true,
+    });
+  </script>
+</body>
+</html>

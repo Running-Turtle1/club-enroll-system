@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../libs/bootstrap5.min.css"/>
+  <link rel="stylesheet" href="../libs/index.css"/>
+</head>
+<body>
+  <div id="index"></div>
+  <div id="app">
+    <table http="/nav"
+      id="table" class="table">
+      <thead>
+        <tr>
+        <!-- <th>图片</th> -->
+          <th>导航名称</th>
+          
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in tableData">
+        <!--
+          <td style="padding: 1px;">
+            <bg :src="" width="50px" height="50px"></bg>
+          </td>
+        -->
+          <td>{{item.hot}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" @click="update(item.id)">修改</button>
+            <button class="btn btn-danger  btn-sm" @click="remove(item.id)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="../libs/bootstrap5.min.js"></script>
+  <script src="../libs/vue.js"></script>
+  <script src="../libs/index.js"></script>
+  <script>
+    initVue(function () {
+      var uid = document.getElementById('uid');
+      if (uid) {
+        uid.value = localStorage.getItem('uid')
+      }
+    });
+  </script>
+</body>
+</html>
